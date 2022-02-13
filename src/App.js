@@ -14,7 +14,7 @@ function App() {
       url: 'https://programming-memes-images.p.rapidapi.com/v1/memes',
       headers: {
         'x-rapidapi-host': 'programming-memes-images.p.rapidapi.com',
-        'x-rapidapi-key': '238f019ceamsh555090a8d52cec6p1178e5jsn2e7cd458b6c3'
+        'x-rapidapi-key': ''
       }
     }
 
