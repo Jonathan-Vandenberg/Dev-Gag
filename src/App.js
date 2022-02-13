@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import JokesList from './JokesList'
+
+import './App.css'
+
+var axios = require('axios').default
 
 function App() {
+  const [jokes, setJokes] = useState([])
+
+  const jokeHandler = () => {
+    var options = {
+      method: 'GET',
+      url: 'https://programming-memes-images.p.rapidapi.com/v1/memes',
+      headers: {
+        'x-rapidapi-host': 'programming-memes-images.p.rapidapi.com',
+        'x-rapidapi-key': '238f019ceamsh555090a8d52cec6p1178e5jsn2e7cd458b6c3'
+      }
+    }
+
+    axios
+      .request(options)
+      .then((response) => {
+        const transformedData = response.data.map((jokeData) => {
+          return {
+            image: jokeData.image
+          }
+        })
+        setJokes(transformedData)
+        console.log(transformedData)
+      })
+      .catch(function (error) {
+        console.error(error)
+      })
+
+    window.scrollTo(0, 0)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <h1>Dev-Gag</h1>
+      <JokesList jokes={jokes} />
+      <button onClick={jokeHandler}>Make meh Laugh!</button>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

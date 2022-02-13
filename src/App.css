@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  padding: 20px;
 }
 
 .App-logo {
@@ -14,7 +16,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +36,40 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+img {
+  width: 65vw;
+  height: auto;
+  justify-self: center;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+ul {
+  display: grid;
+}
+
+button {
+  padding: 10px;
+  border-radius: 7px;
+  background-color: #37626e;
+  font-family: 'Lobster', cursive;
+  color: rgb(204, 209, 209);
+  border: none;
+  font-size: larger;
+}
+
+button:hover {
+  background-color: #61dafb;
+  color: black;
+  transform: scale(1.2);
+}
+
+h1 {
+  padding: 30px;
+  font-family: 'Lobster', cursive;
+  font-size: xx-large;
+  color: rgb(204, 209, 209);
+  position: sticky;
 }
